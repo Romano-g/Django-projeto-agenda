@@ -1,5 +1,5 @@
 from django.contrib import admin
-from contact.models import Contact
+from contact.models import Category, Contact
 
 
 @admin.register(Contact)
@@ -28,3 +28,9 @@ class ContactAdmin(admin.ModelAdmin):
         'id',
         'phone',
     )
+
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = 'name',
+    ordering = '-id',
