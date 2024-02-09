@@ -1,6 +1,7 @@
 .vscode
 static
 media
+project/local_settings.py
 
 # Django #
 *.log
