@@ -2,7 +2,7 @@
 
 {% block content %}
   <div class="form-wrapper">
-    <h2>Criar um novo contato.</h2>
+    <h2>Editar {{ contact.first_name }} {{ contact.last_name }}.</h2>
 
     <form action="{{ form_action }}" method="POST" enctype="multipart/form-data">
       {% csrf_token %}
@@ -23,7 +23,14 @@
             </p>
           {% endif %}
 
+          
         </div>
+          
+          {% if field.name == 'picture' and field.value.url %}
+            <div class="form-group">
+              <img src="{{ field.value.url }}" alt="">
+            </div>
+          {% endif %}
         {% endfor %}
       </div>
 
@@ -39,7 +46,7 @@
 
       <div class="form-content">
         <div class="form-group">
-          <button class="btn" type="submit">Cadastrar</button>
+          <button class="btn" type="submit">Atualizar</button>
         </div>
       </div>
 
